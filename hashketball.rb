@@ -161,6 +161,32 @@ def player_numbers(team_name)
           array.push(game_hash[host][:players][name][:number])
         end
       end
-      return array
   end
+  return array
+end
+
+def player_stats(player)
+output_hash = {}
+  game_hash.collect do |host, team|
+    game_hash[host][:players].keys.collect do |name|
+      if name == player
+        output_hash = game_hash[host][:players][player]
+      end
+    end
+  end
+  return output_hash
+end
+
+def big_shoe_rebounds
+  max = 0
+  number_of_rebounds = nil
+  game_hash.collect do |host, team|
+    game_hash[host][:players].collect do |name, v|
+      if max < game_hash[host][:Players][name][:shoe]
+        max = game_hash[host][:Players][name][:shoe]
+        number_of_rebounds = game_hash[host][:players][name][:rebounds]
+      end
+    end
+  end
+return number_of_rebounds
 end
