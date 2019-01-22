@@ -153,6 +153,14 @@ def team_names
   end
 end
 
-def player_numbers
-
+def player_numbers(team_name)
+  array = []
+  game_hash.collect do |host, team|
+      if team_name == game_hash[host][:team_name]
+        game_hash[host][:players].collect do |name, attribute|
+          array.push(game_hash[host][:players][name][:number])
+        end
+      end
+      return array
+  end
 end
