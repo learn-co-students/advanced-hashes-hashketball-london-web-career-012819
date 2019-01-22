@@ -182,8 +182,8 @@ def big_shoe_rebounds
   number_of_rebounds = nil
   game_hash.collect do |host, team|
     game_hash[host][:players].collect do |name, v|
-      if max < game_hash[host][:Players][name][:shoe]
-        max = game_hash[host][:Players][name][:shoe]
+      if max < game_hash[host][:players][name][:shoe]
+        max = game_hash[host][:players][name][:shoe]
         number_of_rebounds = game_hash[host][:players][name][:rebounds]
       end
     end
