@@ -120,8 +120,39 @@ def num_points_scored(player)
   game_hash.collect do |host, team|
     game_hash[host][:players].keys.collect do |name|
       if name == player
-      game_hash[:home][:players][player].fetch(:points)
+        value = game_hash[host][:players][player][:points]
+        return value
       end
     end
   end
+end
+
+def shoe_size(player)
+  game_hash.collect do |host, team|
+    game_hash[host][:players].keys.collect do |name|
+      if name == player
+        value = game_hash[host][:players][player][:shoe]
+        return value
+      end
+    end
+  end
+end
+
+def team_colors(team_name)
+  game_hash.collect do |host, team|
+      if game_hash[host][:team_name] == team_name
+        value = game_hash[host][:colors]
+        return value
+    end
+  end
+end
+
+def team_names
+  game_hash.collect do |host, team|
+    game_hash[host][:team_name]
+  end
+end
+
+def player_numbers
+
 end
