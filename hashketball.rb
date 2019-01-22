@@ -117,8 +117,26 @@ def game_hash
   }
 end
 
-def num_points_scored(player_name)
-  game_hash.each do [:players] [:points]
-    if input_name == "players"
-      return player_stats [:points]
+def num_points_scored(name)
+  player = find_the_player(name)
+  player.fetch(:points)
+end
+
+def shoe_size(name)
+  player = find_the_player(name)
+  player.fetch(:shoe)
+end
+
+def find_the_player(name)
+  # look through the game hash
+  game_hash.each do |team_location, team_hash|
+
+      # look through the players in each team hash
+     team_hash[:players].each do |player_name, player_stats|
+       # if we are looking at the player, return that player
+       if player_name == name
+         return player_stats
+       end
+     end
+  end
 end
