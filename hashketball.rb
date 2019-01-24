@@ -1,3 +1,5 @@
+require 'pry'
+
 def game_hash
   game = { :home =>
             {:team_name => "Brooklyn Nets",
@@ -100,5 +102,17 @@ end
 end
 
 def big_shoe_rebounds
-
+  shoe_arr = []
+  max_shoe = nil
+  max_rebounds = nil
+  game_hash.each do |team, attribute|
+    attribute[:players].each do |name, data|
+      shoe_arr << data[:shoe]
+      max_shoe = shoe_arr.max
+      if max_shoe = data[:shoe]
+        max_rebounds = data[:rebounds]
+    end
+  end
+end
+max_rebounds
 end
