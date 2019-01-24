@@ -36,7 +36,7 @@ def game_hash
 end
 
 def num_points_scored(player_name)
-  points = nil
+  points = ""
 game_hash.each do |team, attribute|
 attribute[:players].each do |name, data|
   if name == player_name
@@ -48,7 +48,7 @@ points
 end
 
 def shoe_size(player_name)
-  shoe_size = nil
+  shoe_size = ""
 game_hash.each do |team, attribute|
 attribute[:players].each do |name, data|
   if name == player_name
@@ -103,8 +103,8 @@ end
 
 def big_shoe_rebounds
   shoe_arr = []
-  max_shoe = nil
-  max_rebounds = nil
+  max_shoe = ""
+  max_rebounds = ""
   game_hash.each do |team, attribute|
     attribute[:players].each do |name, data|
       shoe_arr << data[:shoe]
